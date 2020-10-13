@@ -1,0 +1,71 @@
+# One column.
+bot_1col:
+  label: 'One Col Clickable Media'
+  category: 'BOT Custom Media'
+  class: '\Drupal\bootstrap_layouts\Plugin\Layout\BootstrapLayoutsBase'
+  type: partial
+  icon: images/1col.png
+  template: templates/bot/clickable-media
+  regions:
+    main:
+      label: 'Content'
+      classes:
+        - col-sm-12
+
+# One column.
+bot_clickable_1col:
+  label: 'One Col Clickable Node'
+  category: 'BOT Custom Node'
+  class: '\Drupal\bootstrap_layouts\Plugin\Layout\BootstrapLayoutsBase'
+  type: partial
+  icon: images/1col.png
+  template: templates/bot/clickable-1col
+  regions:
+    main:
+      label: 'Content'
+      classes:
+        - col-sm-12
+
+# One column.
+bot_clickable_3col:
+  label: 'Three Col Clickable Node'
+  category: 'BOT Custom Node'
+  class: '\Drupal\bootstrap_layouts\Plugin\Layout\BootstrapLayoutsBase'
+  type: partial
+  icon: images/3col.png
+  template: templates/bot/clickable-3col
+  regions:
+    left:
+      label: 'Left'
+      classes:
+        - col-sm-3
+    right:
+      label: 'Right'
+      classes:
+        - col-sm-3
+    middle:
+      label: 'Middle'
+      classes:
+        - col-sm-6
+
+# Two column with wrapper.
+bot_2col:
+  label: 'Two column With Wrapper'
+  category: 'BOT Custom'
+  class: '\Drupal\bootstrap_layouts\Plugin\Layout\BootstrapLayoutsBase'
+  type: partial
+  icon: images/2col.png
+  template: templates/bot/bot-2col-wrapper
+  regions:
+    left:
+      label: 'Left'
+      classes:
+        - col-sm-6
+    right:
+      label: 'Right'
+      classes:
+        - col-sm-6
+    bottom:
+      label: 'Bottom'
+      classes:
+       - col-sm-12

@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Oswald:400,700&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+
+
+/**********global********/
+body{
+    font-family: 'Lato', sans-serif;
+    max-width:1920px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background:#272c39;
+    color: #272c39;
+    overflow-x:hidden;
+    font-size: 16px;
+}
+* {
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s
+}
+a {
+    color: #ff6700;
+}
+.page-header {
+    border: none;
+}
+.component .contextual-region {
+    position: unset;
+}
+a:focus, a:hover {
+    color: #00833f;
+    text-decoration: none;
+}
+h1,h2,h3 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+}
+h1,
+.component--type-comp-wysiwyg-para-w-title .field--name-title {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: calc(22px + (50 - 22) * ((100vw - 320px) / (1920 - 320)));
+}
+h1:after,
+.component--type-comp-wysiwyg-para-w-title .field--name-title:after {
+    content: '';
+    height: 3px;
+    width: 130px;
+    background:#ff6700;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 20px;
+}
+.region-content .content h2 {
+    font-size: calc(14px + (28 - 14) * ((100vw - 320px) / (1920 - 320)));
+}
+.main-container, 
+.dialog-off-canvas-main-canvas {
+    background:#fff;
+}
+p {
+    margin-bottom: 20px;
+}
+/*nav*/
+header.navbar .container-fluid {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+header nav a {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    font-size: calc(23px + (23 - 23) * ((100vw - 768px) / (1920 - 320)));
+}
+@media screen and (max-width:1024px) {
+    header nav a {
+        font-size: 14px;
+        padding: 0 5px;
+    }
+    .header-nav-menu ul li {
+        padding: 0 5px !important;
+    }
+}
+.navbar-default {
+    border: none;
+    margin-bottom: 0px;
+}
+.navbar-default > .container-fluid {
+    display: flex;
+    align-items: center;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border: none;
+    width: 100%
+}
+.header-nav-menu ul:not(.contextual-links) {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+@media screen and (max-width:768px) {
+    .header-nav-menu ul:not(.contextual-links) {
+        flex-wrap: wrap;
+    }
+    .header-nav-menu ul:not(.contextual-links) li {
+        width: 100%;
+        border-bottom: 1px solid #e1e1e1;
+    }
+    .header-nav-menu ul:not(.contextual-links) li a {
+        padding: 10px 0;
+        display: block;
+    }
+    .header-nav-menu ul li a {
+        color: #000 !important;
+    }
+    #block-memberuser li {
+        padding: 0 20px;
+    }  
+}
+.header-nav-menu ul li {
+    padding: 0 15px;
+}
+.header-nav-menu ul li a ~ div {
+    display: none;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    background:none;
+}
+nav#block-bot-custom-main-menu {
+    margin-left: auto;
+}
+@media screen and (min-width:768px) {
+    .navbar-collapse .region-navigation-collapsible {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+        padding-right: 5%;
+        justify-content: flex-end;
+    }
+    .navbar-collapse {
+        margin-left: auto !important;
+    }
+}
+@media screen and (max-width:768px) {
+    header.navbar .container-fluid {
+        padding: 0;
+    }
+    .container-fluid > .navbar-header {
+        padding: 0 15px;
+    }
+    .region-navigation-collapsible {
+        background: #fff;
+    }
+    nav#block-bot-custom-main-menu,
+    .search-trigger {
+        padding: 0 15px;
+    }
+}
+
+
+/*breadcrumbs*/
+.breadcrumb {
+    background:none;
+    border-radius: 0;
+}
+.breadcrumb * {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color:#000;
+    opacity: 0.7;
+}
+
+/*buttons*/
+.btn, a.button,
+.more-link a, input.print,
+.crm-container .crm-button.crm-i-button input.crm-form-submit {
+    background: #ff6700;
+    text-align: center;
+    border-radius: 0;
+    display: inline-block;
+    position: relative;
+    border: none;
+    color: #fff;
+    border-radius: 0px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    padding: 10px 30px;
+    min-width: 200px;
+    font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+    text-shadow: none;
+}
+.btn:hover, a.button:hover,
+.crm-container .crm-button.crm-i-button input.crm-form-submit:hover {
+    background:#008752 !important;
+}
+.views-field-image-URL img {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+/*logo*/
+.logo.navbar-btn {
+    margin: 20px 0;
+    padding: 0;
+}
+
+/**********end global********/
+
+/*logged in edit options*/
+nav.tabs {
+    position: fixed;
+    bottom: 0;
+    background: #999;
+    z-index: 100000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    max-width: initial;
+    left: 0;
+}
+nav.tabs ul li a {
+    color:#000;
+}
+nav.tabs ul {
+    border-top: solid 1px #2d2d2d;
+    padding-left: 50px;
+}
+
+/*******pagination*********/
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color:#00833f;
+    border-color: #00833f;
+}
+.pagination > li > a, .pagination > li > span {
+    color:#00833f;
+}
+
+.bs-region--left,
+.bs-region--right {
+        margin-bottom: 20px;
+    }
+
+/******body text*******/
+.region-content .field--name-body h2,
+.region-content .field--name-body h3,
+.region-content .field--name-body h4,
+.region-content .field--name-body h5,
+.region-content .field--name-body h6,
+.jobs-block h2 {
+    font-family: 'Lato', sans-serif;
+}
+.region-content .field--name-body ul {
+  list-style: none;
+}
+p.centered {
+    text-align: center;
+}
+.region-content .field--name-body ul li::before {
+  content: "\2022";
+  color: #ff6700;
+  font-weight: bold;
+    font-size: 12px;
+  display: inline-block; 
+  width: 20px;
+  margin-left: -20px;
+}
+
+
+.messages__wrapper {
+    max-width: 1200px;
+    margin: 30px auto;
+}
+ 

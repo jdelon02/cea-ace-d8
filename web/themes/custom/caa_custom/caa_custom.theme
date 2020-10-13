@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function caa_custom_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+// Implementation of hook_preprocess_HOOK().
+function caa_custom_preprocess_node(&$vars) {
+  if ($vars['node']->type == 'profile' && $vars['view_mode'] == 'author_bio') {
+    $vars['theme_hook_suggestions'][] = 'node__profile_author_bio';
+  }
+}
+
+function caa_custom_preprocess_clickable_media(&$variables) {
+$parentEntity = $variables['content']['field_media_image']['#object']->_referringItem->getEntity();
+$variables['parent_entity_url'] = \Drupal::service('path.alias_manager')->getAliasByPath($parentEntity->toUrl()->toString());
+}
+
+function caa_custom_preprocess_clickable_1col(&$variables) {
+  // dump($variables);
+  $parentEntity = $variables['content']["#entity"];
+  if($parentEntity) {
+    $variables['parent_entity_url'] = \Drupal::service('path.alias_manager')->getAliasByPath($parentEntity->toUrl()->toString());
+  }
+}
+
+function caa_custom_preprocess_clickable_3col(&$variables) {
+  // dump($variables);
+  $parentEntity = $variables['content']["#entity"];
+  if($parentEntity) {
+    $variables['parent_entity_url'] = \Drupal::service('path.alias_manager')->getAliasByPath($parentEntity->toUrl()->toString());
+  }
+}
+
+function caa_custom_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] === 'views_exposed_filter_block:search_content-page_1') {
+    $variables['#attached']['library'][] = 'caa_custom/search-popup';
+  }
+}
+
+/**
+* Implements hook_views_pre_render().
+*/
+function caa_custom_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'news_views')) {
+    $view->element['#attached']['library'][] = 'caa_custom/news-refresh';
+  }
+}
+
+/**
+* Implements THEME_preprocess_HOOK().
+*/
+function caa_custom_preprocess_civicrm_entity(&$variables) {
+  $variables['#attached']['library'][] = 'caa_custom/civi-events';
+}

@@ -1,0 +1,6 @@
+name: CEA CiviCRM
+description: CEA/CiviCRM integrations
+package: Custom
+
+type: module
+core: 8.x

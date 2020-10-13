@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Module file for the CiviCRM Entity module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+
+/**
+* Implements hook_ENTITY_TYPE_view() for node entities.
+*/
+function bot_civiaddress_alter_civicrm_address_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+   
+   $latitude = $entity->geo_code_1->value;
+   $longitude = $entity->geo_code_2->value;
+   
+   $location_wkt = \Drupal::service('geofield.wkt_generator')->wktBuildPoint([$longitude, $latitude]);
+
+   $geofield_point = [
+     'value' => $location_wkt,
+   ];
+
+   try {
+      $entity->set('field_geofield_test', $geofield_point);
+      // $ret = $civicrm_address_entity->save();
+   } catch (Exception $e) {
+     \Drupal::logger('cea_civicrm')->error(var_export($e->getMessage(), TRUE));
+   }
+
+   //vardumperMessage($geofield);
+}

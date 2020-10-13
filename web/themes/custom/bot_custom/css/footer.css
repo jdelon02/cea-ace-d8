@@ -1,0 +1,459 @@
+/**
+ * If using a CSS pre-processor, tell it to overwrite this file. If not, place
+ * your custom CSS modifications here.
+ */
+
+/**********footer********/
+.main-container ~ footer {
+    background:#394053;
+    padding: 0 !important;
+    border: none;
+    margin: 0;
+    position: relative;
+}
+.footer.container {
+    max-width: 1920px;
+    width:100%;
+}
+footer .footcolumns {
+    padding:50px 0;
+}
+footer * {
+    color:#fff;
+    font-size: calc(10px + (20 - 10) * ((100vw - 320px) / (1920 - 320)));
+}
+footer .field--type-text-with-summary {
+    border:none !important;
+    padding-top:0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+footer p {
+    margin: 0;
+}
+footer .menu a {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: calc(12px + (23 - 12) * ((100vw - 320px) / (1920 - 320)));
+    font-weight: 700;
+    padding: 0 0 5px 0;
+    color: #fff !important;
+}
+footer .menu a:hover {
+    background:none;
+    color:#ff6700 !important;
+}
+.footer_abs_bottom {
+    background:#272c39;
+}
+
+.region-footer-abs-bottom {
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@media screen and (min-width:768px) {
+    .footer .footsy {
+        width: 100%;
+    }
+}
+@media screen and (max-width:768px) {
+    footer .footcolumns {
+        text-align: center;
+    }
+    .region-footer-abs-bottom {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .footer-bottom-text {
+        width: 100%;
+        max-width: 100% !important;
+        margin: 20px 0;
+        text-align: center;
+    }
+    footer #block-becomeamemberbutton {
+        margin-left: -30px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .region-footer-abs-bottom,
+    footer .footcolumns {
+        width: 750px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 992px) {
+    .region-footer-abs-bottom,
+    footer .footcolumns {
+        width: 900px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1300px) {
+    .region-footer-abs-bottom,
+    footer .footcolumns {
+        width: 1170px;
+        margin: 0 auto;
+    }
+}
+
+.region-footer-abs-bottom a.logo img {
+    filter: brightness(0) invert(1);
+}
+
+button.memberbutton {
+    background:#ff6700;
+    position: relative;
+    border:none;
+    color:#fff;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    padding: 20px 20px 20px 30px;
+}
+button.memberbutton:after {
+    clip-path: polygon(0 0, 30% 0%, 55% 100%, 0% 100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    background:#ff6700;
+    display: inline;
+    height: 101%;
+    z-index: 1;
+    width: 100px;
+}
+.footer-bottom-text {
+    max-width: 30%;
+}
+.footer-bottom-text,
+.footer-bottom-text * {
+    font-family: 'Oswald', sans-serif;
+    color: #ff6700 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0 15px;
+    font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+    margin-bottom: 0 !important;
+}
+.footer .menu--social-media-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.footer .menu--social-media-links a {
+    font-size: 0;
+    padding: 0 20px;
+}
+.footer .menu--social-media-links a svg {
+    font-size:30px !important;
+}
+
+
+/*tile menu - not home*/
+.bottom-menu-tiles,
+.third-level-nav-block {
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
+    padding: 0 15px;
+}
+.bottom-menu-tiles ul.menu,
+.third-level-nav-block ul.menu {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+}
+.bottom-menu-tiles.with-back-link ~ .bottom-menu-tiles {
+    border-top: 1px solid #ccc;
+    padding-top: 30px;
+}
+
+.bottom-menu-tiles ul.menu li {
+    margin: 6px;
+    border-radius: 10px;
+    background:url(/themes/custom/bot_custom/images/tile-menu-pattern.jpg) repeat center center;
+    position: relative;
+    overflow: hidden;
+    max-height: 220px;
+    height: 220px;
+}
+@media screen and (max-width:850px) {
+    .bottom-menu-tiles ul.menu li {
+        height: 150px;
+    }
+}
+.bottom-menu-tiles ul.menu li a {
+    color: #272c39;
+    line-height: 1;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
+    padding: 40px;
+    display: block;
+    height: 100%;
+    position: relative;
+    z-index: 99;
+}
+.bottom-menu-tiles ul.menu li a:after {
+    background:url(/themes/custom/bot_custom/images/tile-menu-arrow.png) no-repeat; 
+    width:15px;
+    height: 15px;
+    position: absolute;
+    right: 40px;
+    top: 45px;
+    content: '';
+    opacity: 0;
+    color: #fff;
+}
+.nav-first-level .with-back-link {
+    display: none;
+}
+.bottom-menu-tiles ul.menu li:hover a,
+.bottom-menu-tiles:not(.with-back-link) ul.menu li.menu-item--active-trail a
+{
+    color: #fff;
+}
+.bottom-menu-tiles ul.menu li:hover a:after,
+.bottom-menu-tiles:not(.with-back-link) ul.menu li.menu-item--active-trail a:after {
+    opacity: 1.0;
+}
+.bottom-menu-tiles ul.menu li .menu-link-content:after {
+    background-color: rgba(39,44,57,0.5);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.bottom-menu-tiles ul.menu li .menu-link-content {
+    position: absolute;
+    top: 0;
+    width: 110%;
+    height: 100%;
+    opacity: 0;
+    background:#272c39;
+}
+.bottom-menu-tiles ul.menu li:hover .menu-link-content,
+.bottom-menu-tiles:not(.with-back-link) ul.menu li.menu-item--active-trail .menu-link-content {
+    opacity: 1.0;
+}
+.bottom-menu-tiles ul.menu li .menu-link-content img {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    object-fit: cover;
+    width: auto;
+    height: 220px !important; 
+}
+@media screen and (max-width:768px) {
+    .bottom-menu-tiles ul.menu li .menu-link-content img {
+        height: 150px !important;
+    }
+}
+.bottom-menu-tiles ul.menu li {
+        width: 45%;
+}
+@media screen and (min-width:960px) {
+    .bottom-menu-tiles ul.menu li {
+        width: 31.3333%;
+    }
+}
+@media screen and (min-width:1200px) {
+    .bottom-menu-tiles ul.menu li {
+        width: 20%;
+    }
+}
+/*tile menu backlink*/
+.with-back-link {
+    margin:30px auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.with-back-link h2,
+.third-level-nav-block h2 {
+    display: none;
+}
+.with-back-link ul.menu li a:before {
+    content: 'BACK TO: ';
+    display: inline;
+    position: relative;
+    margin-right: 5px;
+}
+.third-level-nav-block ul.menu:before {
+    content: 'MORE WITHIN ';
+    display: inline;
+    position: relative;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
+    color: #272c39;
+}
+
+.with-back-link ul.menu,
+.third-level-nav-block ul.menu {
+    margin: 0 !important;
+}
+.with-back-link ul.menu li.menu-item{
+    display: none;
+}
+.with-back-link ul.menu li.menu-item--active-trail {
+    display: block;
+}
+
+.with-back-link ul.menu li {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    background: none;
+    overflow: visible;
+    height: auto;
+}
+.with-back-link ul.menu li a {
+    padding: 0;
+    line-height: normal;
+}
+.bottom-menu-tiles.with-back-link ul.menu li:hover a {
+    color: #ff6700;
+}
+.with-back-link ul.menu li a:after {
+    filter: invert();
+}
+.with-back-link ul.menu li a:after {
+    right: -25px;
+    top: 10px;
+    color: #ff6700;
+}
+.with-back-link ul.menu li:hover .menu-link-content,
+.with-back-link ul.menu li .menu-link-content {
+    display: none;
+}
+.third-level-nav-block {
+    padding-top: 30px;
+    margin: 30px auto;
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+}
+.third-level-nav-block a {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
+    color:#272c39
+}
+.third-level-nav-block a:hover {
+    color: #ff6700;
+}
+.third-level-nav-block li a:after {
+    content: '/';
+    color: #ccc;
+    padding: 0 5px;
+    display: inline;
+    position: relative;
+}
+.third-level-nav-block li:last-child a:after {
+    display: none;
+}
+
+.region-content-baseline {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-top: 3em;
+    clear: both;
+}
+#block-newslettersignup {
+    background:url(/themes/custom/bot_custom/images/tile-menu-pattern.jpg) repeat center center;
+    padding: 6em 0;
+    margin-top: 3em;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form h2 {
+    text-align: center;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form .form-item label {
+    display: none;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form .webform-flexbox .webform-flex--container {
+    margin: 0;
+}
+
+.region-content-baseline .webform-submission-newsletter-signup-form input {
+    border-radius: 0;
+    border: 5px solid #00833f;
+    color: #000;
+    font-size: 16px;
+    padding: 0 20px;
+    height: 72px;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form .webform-flex--1 {
+    flex: auto;
+    -webkit-flex: auto;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form button:not(.trigger) {
+    background: #00833f;
+    display: block;
+    clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+    position: relative;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    padding: 0 20px 0 0;
+    width: 200px;
+    font-size: calc(16px + (26 - 16) * ((100vw - 320px) / (1920 - 320)));
+    height: 72px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.region-content-baseline .webform-submission-newsletter-signup-form .js-form-type-webform-markup {
+    text-align: center;
+}
+.field--name-field-newsletter-signup .webform-flexbox {
+    position: relative;
+}
+.field--name-field-newsletter-signup .webform-flex--container > .form-item > input{
+    width: calc(100% - 195px);
+}
+
+@media screen and (max-width:767px){
+	.region-content-baseline .webform-submission-newsletter-signup-form button:not(.trigger) {
+		min-width: 0;
+		padding: 0 35px 0 20px;
+		width: 150px;
+	}
+	.field--name-field-newsletter-signup .webform-flex--container > .form-item > input{
+		width: calc(100% - 145px);	
+	}
+}
+

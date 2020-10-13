@@ -1,0 +1,131 @@
+<?php
+
+function cea_civicrm_civicrm_post($op, $objectName, $objectId, &$objectRef) {
+  if (($op === 'create' || $op === 'edit') &&
+      ($objectName === 'Address')
+  ) {
+    if (!isset($objectRef->geo_code_1) || !isset($objectRef->geo_code_2)) {
+      return;
+    }
+
+    //Has this run before?
+    $stop = &drupal_static(__FUNCTION__);
+
+    if (!isset($stop[$objectName][$objectId])) {
+      //Set the stop flag here before calling entity-save() or we'll execute forever and ever
+      $stop[$objectName][$objectRef->id] = TRUE;
+
+      $address_id = $objectRef->id;
+
+      $lat = $objectRef->geo_code_1;
+      $lon = $objectRef->geo_code_2;
+
+      $civicrm_address_entity = \Drupal::entityTypeManager()->getStorage('civicrm_address')->load($objectRef->id);
+
+      //Don't run civi post hooks after entity->save()
+      $civicrm_address_entity->drupal_crud = TRUE;
+
+      $location_wkt = \Drupal::service('geofield.wkt_generator')->wktBuildPoint([$lon, $lat]);
+
+      $geofield_point = [
+        'value' => $location_wkt,
+      ];
+
+      try {
+        $civicrm_address_entity->field_geofield_test->setValue($geofield_point);
+        $ret = $civicrm_address_entity->save();
+      } catch (Exception $e) {
+        \Drupal::logger('cea_civicrm')->error(var_export($e->getMessage(), TRUE));
+      }
+    }
+  }
+}
+
+/*
+* Called from block "Event Fees"
+*/
+function getEventPriceFields(){
+
+  //Getting event ID from url
+  $arr = explode('/civicrm-event/', $_SERVER['REQUEST_URI']);
+  $event_id = $arr[1];
+  $event_id = preg_replace("/[^0-9]/", "", $event_id);
+
+  $price_options = [];
+
+  if(is_numeric($event_id)){
+
+    //Getting price fields for event
+    $discountId = CRM_Core_BAO_Discount::findSet($event_id, 'civicrm_event');
+    if ($discountId) {
+      $priceSetId = CRM_Core_DAO::getFieldValue('CRM_Core_DAO_Discount', $discountId, 'price_set_id');
+    }
+    else {
+      $priceSetId = CRM_Price_BAO_PriceSet::getFor('civicrm_event', $event_id);
+    }
+
+    if ($priceSetId) {
+
+      $setDetails = CRM_Price_BAO_PriceSet::getSetDetail($priceSetId, TRUE, TRUE);
+      $priceSetFields = $setDetails[$priceSetId]['fields'];
+      //CRM_Core_Error::debug('test', $priceSetFields);
+
+      if(is_array($priceSetFields)){
+
+        foreach ($priceSetFields as $key => $value) {
+
+          if($value['is_active']){
+
+            foreach ($value['options'] as $option_key => $option) {
+
+              if($option['is_active']){
+
+                $price_options[$option['label']] = '$'.number_format($option['amount'], 2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return $price_options;
+}
+
+function cea_civicrm_update_addresses() {
+  \Drupal::service('civicrm')->initialize();
+  set_time_limit(0);
+  $result = civicrm_api3('Address', 'get', [
+    'sequential' => 1,
+    'geo_code_1' => ['<>' => 0],
+    'options' => ['limit' => 0],
+  ]);
+
+  if ($result['count'] && $result['values']) {
+    foreach ($result['values'] as $value) {
+      $lat = $value['geo_code_1'];
+      $lon = $value['geo_code_2'];
+
+      print "$lat $lon\n";
+
+      $civicrm_address_entity = \Drupal::entityTypeManager()->getStorage('civicrm_address')->load($value['id']);
+
+      //Don't run civi post hooks after entity->save()
+      $civicrm_address_entity->drupal_crud = TRUE;
+
+      $location_wkt = \Drupal::service('geofield.wkt_generator')->wktBuildPoint([$lon, $lat]);
+
+      $geofield_point = [
+        'value' => $location_wkt,
+      ];
+
+      try {
+        $civicrm_address_entity->field_geofield_test->setValue($geofield_point);
+        $ret = $civicrm_address_entity->save();
+      } catch (Exception $e) {
+        //\Drupal::logger('cea_civicrm')->error(var_export($e->getMessage(), TRUE));
+      }      
+    }
+  }
+}
+

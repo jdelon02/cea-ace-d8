@@ -1,0 +1,5 @@
+name: BOT CiviCRM Address geofield alter
+type: module
+description: 'copy civicrm address lat/long to geofield vals.'
+package: Custom
+core: 8.x

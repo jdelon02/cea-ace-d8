@@ -1,0 +1,92 @@
+.path-civicrm .crm-container .crm-contribution-page-id-16 #priceset {
+    margin-bottom: 0 !important;
+    border-bottom: none;
+    padding-bottom: 0 !important;
+}
+
+/* AFTER STYLE.CSS:2668 */
+.path-civicrm div.crm-container .label {
+    font-family: 'Lato', sans-serif;
+    color: #272c39;
+    font-size: 16px;
+    text-transform: initial;
+    font-weight: 700 !important;
+}
+
+#crm-container.crm-public input[type="text"], 
+#crm-container.crm-public input[type="password"], 
+#crm-container.crm-public input[type="email"], 
+#crm-container.crm-public select {
+    height: 50px;
+    padding: 0;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    display: block;
+    line-height: 1.42857143;
+    padding: 6px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+}
+.credit_card_info-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.credit_card_exp_date-section .content {
+    display: flex;
+    justify-content: space-between;
+}
+.credit_card_info-section > div.cvv2-section,
+.credit_card_info-section > div.credit_card_exp_date-section,
+.credit_card_exp_date-section .content select {
+    width: 50%;
+}
+.credit_card_info-section > div.credit_card_type-section,
+.credit_card_info-section > div.credit_card_number-section {
+    width: 100%;
+}
+.credit_card_exp_date-section .content select {
+    width: 49%;
+}
+.crm-container.crm-public .select2-container .select2-choice {
+    padding: 0 5px 0 8px;
+}
+.crm-container .select2-container .select2-choice > .select2-chosen {
+    font-size: 1.1em;
+    top: 10px;
+    position: relative;
+    font-weight: normal;
+    font-size: 16px;
+    color: #333;
+}
+.crm-container .select2-container .select2-choice abbr {
+    top: 16px;
+}
+.select2-container .select2-choice .select2-arrow b {
+    background-position: 0 8px;
+}
+.crm-container span.crm-button {
+    background: none;
+    text-shadow: none;
+    border: none;
+}
+.cvv2-section .content {
+    position: relative;
+}
+.crm-container .cvv2-icon {
+    position: absolute;
+    top: 16px;
+    left: 7px;
+}
+#crm-container #cvv2 {
+    padding-left: 65px;
+}
+
+/* SILICA CONSENT - HIDE SOME FIELDS */
+/* 
+#edit-civicrm-1-contact-1-cg28-fieldset,
+form.webform-submission-webform-6629-form ul.token-input-list {
+    display: none;
+}
+ */
